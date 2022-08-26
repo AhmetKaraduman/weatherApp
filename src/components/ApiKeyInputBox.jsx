@@ -34,6 +34,11 @@ function ApiKeyInputBox() {
 		}
 	};
 
+	const onChangeHandler = (e) => {
+		setApiKey(e.target.value);
+		setIsEmpty(false);
+	};
+
 	return (
 		<div className="backdrop" onClick={(e) => backdropClickHandler(e)}>
 			<div id="apiKey_box">
@@ -43,7 +48,7 @@ function ApiKeyInputBox() {
 						type="text"
 						placeholder="Please enter your API key..."
 						value={apiKey}
-						onChange={(e) => (setApiKey(e.target.value), setIsEmpty(false))}
+						onChange={(e) => onChangeHandler(e)}
 					/>
 					<button className="btn btn-white" onClick={(e) => submitHandler(e)}>
 						Save API key
